@@ -11,12 +11,12 @@ pipeline {
         runMATLABTests(codeCoverageCobertura: 'matlabTestArtifacts/cobertura.xml', testResultsJUnit: 'matlabTestArtifacts/junittestresults.xml')
       }
     }
-
-    stage('C++ Code') {
-      steps {
-        runMATLABCommand 'codegen quadraticSolver.prj'
-      }
+    stage('Run MATLAB Command') {
+            steps
+            {
+                runMATLABCommand 'codegen quadraticSolver.prj'
+            }       
+    }                
+  }
     }
 
-  }
-}
